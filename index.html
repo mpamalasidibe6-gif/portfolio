@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08080b">
+  <title>M'Pamala Sidibé — Digital Portfolio / V6</title>
+  <meta name="description" content="Portfolio personnel de M'Pamala Sidibé — Développeur Web & Créateur Digital.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cinematic-v5 v6-award">
+  <div class="cinematic-intro" id="cinematicIntro">
+    <div class="intro-noise"></div>
+    <div class="intro-inner">
+      <div class="intro-code">M’PAMALA / DIGITAL PORTFOLIO / 2026</div>
+      <div class="intro-title"><span>MAKE</span><span>IT</span><span>REAL.</span></div>
+      <button class="intro-enter" id="enterExperience">ENTER EXPERIENCE <span>↗</span></button>
+    </div>
+  </div>
+  <div class="v5-film" aria-hidden="true"><video id="filmVideo" muted loop playsinline preload="metadata"><source src="portfolio-reel.mp4" type="video/mp4"></video><div class="film-vignette"></div></div>
+  <button class="mode-toggle" id="modeToggle" aria-label="Activer ou désactiver le mode cinématique">◐ <span>CINEMA</span></button>
+  <div class="sound-toggle" id="soundToggle" aria-hidden="true">SOUND / OFF</div>
+  <div id="preloader" class="preloader">
+    <div class="loader-mark">M<span>’</span>P</div>
+    <div class="loader-line"><i></i></div>
+    <div class="loader-meta"><span>INITIALIZING PORTFOLIO</span><span id="loaderPercent">00%</span></div>
+  </div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress"><i></i></div>
+  <div class="cursor-label">VIEW</div>
+  <div class="noise"></div>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="nav">
+    <a class="brand" href="#home">M<span>’</span>PAMALA</a>
+    <nav class="nav-links">
+      <a href="#about">À propos</a>
+      <a href="#skills">Compétences</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Me contacter <span>↗</span></a>
+    <button class="menu-btn" aria-label="Ouvrir le menu">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-scanline" aria-hidden="true"></div>
+      <div class="hero-index"><span>00</span><i></i><span>SCROLL TO EXPLORE</span></div>
+      <div class="hero-copy reveal" data-speed="0.18">
+        <div class="eyebrow"><span class="status-dot"></span> WEB · DIGITAL · CREATIVE — BAMAKO</div>
+        <h1>Je transforme<br>les <em>idées</em> en<br><strong>expériences.</strong></h1>
+        <p class="hero-text">Développeur Web & Créateur Digital. Je conçois des interfaces modernes, des expériences interactives et des projets numériques avec une identité forte.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">Voir mes projets <span>↗</span></a>
+          <a class="btn btn-ghost" href="#about">Découvrir mon parcours</a>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TK</a>
+          <a href="#" aria-label="GitHub">GH</a>
+          <span></span>
+          <small>BAMAKO, MALI · 2026</small>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1" data-tilt="true">
+        <div class="photo-card">
+          <div class="photo-placeholder" data-image="assets/images/photo-01.png">
+            <div class="photo-grid"></div>
+            <div class="photo-label">PHOTO 01</div>
+          </div>
+          <div class="photo-overlay">
+            <span>01 / 05</span>
+            <strong>M’PAMALA<br>SIDIBÉ</strong>
+            <small>WEB · DIGITAL · CREATIVE</small>
+          </div>
+          <div class="floating-orb"></div>
+            <div class="orbit-badge">
+              <svg viewBox="0 0 120 120" aria-hidden="true">
+                <defs><path id="orbitPath" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0"/></defs>
+                <text><textPath href="#orbitPath">DESIGN · CODE · CREATE · M’PAMALA · </textPath></text>
+              </svg>
+              <span>✦</span>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signature-strip">
+      <div class="sig-item"><span>01</span><b>THINK</b><small>Direction</small></div>
+      <div class="sig-item"><span>02</span><b>DESIGN</b><small>Interface</small></div>
+      <div class="sig-item"><span>03</span><b>BUILD</b><small>Development</small></div>
+      <div class="sig-item"><span>04</span><b>MOVE</b><small>Motion</small></div>
+      <div class="sig-item sig-final"><span>✦</span><b>REPEAT</b><small>Curiosity</small></div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="section-head reveal">
+        <span class="section-number">01</span>
+        <div><p class="kicker">À PROPOS</p><h2>Créer avec intention.</h2></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="photo-placeholder" data-image="assets/images/photo-02.png">
+            <div class="photo-grid"></div>
+            <div class="photo-label">PHOTO 02</div>
+          </div>
+        </div>
+        <div class="about-content reveal delay-1">
+          <p class="quote">« Le design attire l’attention. L’expérience donne envie de rester. »</p>
+          <p>Je suis <b>M’Pamala Sidibé</b>, développeur Web & créateur digital. J’aime transformer une idée simple en une expérience claire, élégante et mémorable.</p>
+          <p>Je travaille sur des interfaces web, des applications, des expériences créatives et des projets où le code rencontre le design.</p>
+          <div class="stats">
+            <div><strong>04+</strong><span>Projets personnels</span></div>
+            <div><strong>∞</strong><span>Idées à explorer</span></div>
+            <div><strong>24/7</strong><span>Curiosité</span></div>
+          </div>
+          <a class="text-link" href="#contact">Parlons d’un projet <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills">
+      <div class="section-head reveal">
+        <span class="section-number">02</span>
+        <div><p class="kicker">COMPÉTENCES</p><h2>Mon terrain de jeu.</h2></div>
+      </div>
+      <div class="skills-grid reveal">
+        <article class="skill-card featured"><span>01</span><h3>Frontend<br>Development</h3><p>HTML · CSS · JavaScript · Responsive UI</p><b>↗</b></article>
+        <article class="skill-card"><span>02</span><h3>UI / UX<br>Design</h3><p>Design systems · Prototypage · Motion</p><b>↗</b></article>
+        <article class="skill-card"><span>03</span><h3>Python<br>& Créatif</h3><p>Python · Pygame · Interfaces interactives</p><b>↗</b></article>
+        <article class="skill-card"><span>04</span><h3>AI<br>Workflow</h3><p>IA · Prototypage rapide · Création assistée</p><b>↗</b></article>
+      </div>
+    </section>
+
+    <section id="projects" class="section projects">
+      <div class="section-head reveal">
+        <span class="section-number">03</span>
+        <div><p class="kicker">PROJETS SÉLECTIONNÉS</p><h2>Des idées devenues réelles.</h2></div>
+      </div>
+
+      <div class="project-list">
+        <article class="project project-large reveal cursor-view">
+          <div class="project-image project-pam"><span>01</span><div class="project-glow"></div></div>
+          <div class="project-info"><div><small>APP · EDUCATION · DESIGN</small><h3>PAM ACADEMY</h3><p>Une expérience mobile-first pour apprendre Word, Excel, PowerPoint et Photoshop.</p></div><button class="project-open" data-project="pam">Voir le projet ↗</button></div>
+        </article>
+
+        <div class="project-row">
+          <article class="project reveal cursor-view">
+            <div class="project-image project-sira"><span>02</span><div class="mini-heart">✦</div></div>
+            <div class="project-info"><div><small>WEB · EXPERIENCE</small><h3>SIRA BIRTHDAY EXPERIENCE</h3></div><button class="project-open" data-project="sira">↗</button></div>
+          </article>
+          <article class="project reveal delay-1 cursor-view">
+            <div class="project-image project-python"><span>03</span><div class="rings"></div></div>
+            <div class="project-info"><div><small>PYTHON · PYGAME</small><h3>CALCULATRICE</h3></div><button class="project-open" data-project="calc">↗</button></div>
+          </article>
+        </div>
+
+        <article class="project project-large reveal">
+          <div class="project-image project-spiral"><span>04</span><div class="spiral"></div></div>
+          <div class="project-info"><div><small>CREATIVE CODE · PYTHON</small><h3>PARTICLE SPIRAL</h3><p>Une expérience de particules interactive pensée pour un affichage mobile immersif.</p></div><button class="project-open" data-project="spiral">Voir le projet ↗</button></div>
+        </article>
+      </div>
+    </section>
+
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <span>BUILD DIGITAL EXPERIENCES</span><b>✦</b><span>DESIGN WITH INTENTION</span><b>✦</b>
+        <span>BUILD DIGITAL EXPERIENCES</span><b>✦</b><span>DESIGN WITH INTENTION</span><b>✦</b>
+      </div>
+    </div>
+
+    <section class="section beyond">
+      <div class="beyond-card reveal">
+        <div><p class="kicker">AU-DELÀ DU CODE</p><h2>Construire.<br>Apprendre.<br><em>Évoluer.</em></h2></div>
+        <div class="beyond-side">
+          <p>Chaque projet est une occasion d’apprendre une nouvelle technologie, d’affiner une idée et de créer quelque chose dont je peux être fier.</p>
+          <div class="mini-timeline"><span>2026</span><i></i><span>∞</span></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section gallery">
+      <div class="section-head reveal">
+        <span class="section-number">05</span>
+        <div><p class="kicker">GALERIE</p><h2>Quelques fragments.</h2></div>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item tall reveal"><img src="assets/images/photo-03.png" alt="Portrait de M'Pamala"><figcaption>PORTRAIT / 01</figcaption></figure>
+        <figure class="gallery-item reveal delay-1"><img src="assets/images/photo-04.jpg" alt="Création visuelle Spider-Man"><figcaption>VISUAL / 02</figcaption></figure>
+        <figure class="gallery-item reveal"><img src="assets/images/photo-05.png" alt="Portrait créatif"><figcaption>CREATIVE / 03</figcaption></figure>
+        <figure class="gallery-item wide reveal delay-1"><img src="assets/images/photo-06.png" alt="Illustration orange"><figcaption>ART / 04</figcaption></figure>
+        <figure class="gallery-item reveal"><img src="assets/images/photo-07.jpg" alt="Photographie personnelle"><figcaption>PERSONAL / 05</figcaption></figure>
+        <figure class="gallery-item reveal delay-1"><img src="assets/images/photo-08.jpg" alt="Photographie personnelle"><figcaption>PERSONAL / 06</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section story">
+      <div class="section-head reveal">
+        <span class="section-number">06</span>
+        <div><p class="kicker">STORY / PROCESS</p><h2>Une idée. Un mouvement. Une expérience.</h2></div>
+      </div>
+      <div class="story-intro reveal">
+        <p>Je ne veux pas seulement construire des pages. Je veux créer des moments numériques qui ont une direction, un rythme et une personnalité.</p>
+        <span class="story-hint">GLISSE →</span>
+      </div>
+      <div class="story-rail" id="storyRail">
+        <article class="story-card"><span>01 / DISCOVER</span><h3>Comprendre<br>l’idée.</h3><p>Objectif, public, contexte et émotion recherchée.</p><i>01</i></article>
+        <article class="story-card"><span>02 / FRAME</span><h3>Donner une<br>direction.</h3><p>Structure, hiérarchie visuelle et système d’interface.</p><i>02</i></article>
+        <article class="story-card"><span>03 / BUILD</span><h3>Faire vivre<br>l’expérience.</h3><p>Code, motion, interactions et responsive design.</p><i>03</i></article>
+        <article class="story-card"><span>04 / POLISH</span><h3>Soigner les<br>détails.</h3><p>Micro-interactions, performance et cohérence finale.</p><i>04</i></article>
+      </div>
+    </section>
+
+    <section class="manifesto section">
+      <div class="manifesto-inner reveal">
+        <span class="manifesto-mark">M’P</span>
+        <p class="kicker">MANIFESTO</p>
+        <h2>Le web peut être<br><em>utile</em> et spectaculaire.</h2>
+        <div class="manifesto-line"><span></span><b>CODE × DESIGN × CURIOSITY</b><span></span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="section-head reveal">
+        <span class="section-number">04</span>
+        <div><p class="kicker">CONTACT</p><h2>On construit quoi ?</h2></div>
+      </div>
+      <div class="contact-terminal reveal">
+        <div class="contact-scanline"></div>
+        <div class="terminal-top"><span>● ● ●</span><b>m-pamala@portfolio:~</b><small>ONLINE</small></div>
+        <div class="terminal-body">
+          <div class="terminal-copy">
+            <span class="mono">> init_connection()</span>
+            <h3>Parlons de<br><em>ton idée.</em></h3>
+            <p>Un site, une application, une identité digitale ou une expérience interactive ? Écris-moi.</p>
+            <a href="mailto:mpamalasidibe9@gmail.com">mpamalasidibe9@gmail.com ↗</a>
+          </div>
+          <form id="contactForm">
+            <label>TON NOM<input type="text" name="name" placeholder="M'Pamala" required></label>
+            <label>TON EMAIL<input type="email" name="email" placeholder="hello@example.com" required></label>
+            <label>TON MESSAGE<textarea name="message" placeholder="Décris ton idée..." required></textarea></label>
+            <button class="btn btn-primary" type="submit">Envoyer le message <span>↗</span></button>
+            <p id="formStatus" class="form-status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-panel">
+      <button class="modal-close" data-close-modal aria-label="Fermer">×</button>
+      <div class="modal-number" id="modalNumber">01</div>
+      <p class="kicker" id="modalKicker">APP · EDUCATION · DESIGN</p>
+      <h2 id="modalTitle">PAM ACADEMY</h2>
+      <p id="modalDescription">Une expérience mobile-first conçue pour apprendre avec une interface claire, moderne et progressive.</p>
+      <div class="modal-tags" id="modalTags"></div>
+      <div class="modal-actions"><a class="btn btn-primary" href="#contact" data-close-modal>Parler du projet <span>↗</span></a><button class="btn btn-ghost" data-close-modal>Fermer</button></div>
+    </article>
+  </div>
+
+  <div class="command-palette" id="commandPalette" aria-hidden="true">
+    <div class="palette-backdrop" data-close-palette></div>
+    <div class="palette-panel">
+      <div class="palette-head"><span>QUICK NAVIGATION</span><kbd>ESC</kbd></div>
+      <button data-go="#home"><b>01</b> Accueil <span>↗</span></button>
+      <button data-go="#about"><b>02</b> À propos <span>↗</span></button>
+      <button data-go="#skills"><b>03</b> Compétences <span>↗</span></button>
+      <button data-go="#projects"><b>04</b> Projets <span>↗</span></button>
+      <button data-go="#contact"><b>05</b> Contact <span>↗</span></button>
+    </div>
+  </div>
+
+  <div class="mobile-dock" aria-label="Navigation rapide">
+    <a href="#home"><span>⌂</span>HOME</a>
+    <a href="#projects"><span>✦</span>WORK</a>
+    <a href="#about"><span>○</span>ABOUT</a>
+    <a href="#contact"><span>↗</span>CONTACT</a>
+  </div>
+
+  <footer><span>© 2026 M’PAMALA SIDIBÉ</span><span>DESIGNED & BUILT WITH CURIOSITY ✦</span><button class="command-hint" id="openCommands">PRESS / FOR COMMANDS</button><a href="#home">RETOUR EN HAUT ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>

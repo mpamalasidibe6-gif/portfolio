@@ -249,8 +249,11 @@
             <label>TON NOM<input type="text" name="name" placeholder="M'Pamala" required></label>
             <label>TON EMAIL<input type="email" name="email" placeholder="hello@example.com" required></label>
             <label>TON MESSAGE<textarea name="message" placeholder="Décris ton idée..." required></textarea></label>
+            <div class="contact-trap" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <button class="btn btn-primary" type="submit">Envoyer le message <span>↗</span></button>
-            <p id="formStatus" class="form-status"></p>
+            <p id="formStatus" class="form-status" aria-live="polite"></p>
           </form>
         </div>
       </div>

@@ -45,12 +45,34 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-document.getElementById("contactForm").addEventListener("submit", (e) => {
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const data = new FormData(e.target);
+  const form = e.currentTarget;
+  const submitButton = form.querySelector('button[type="submit"]');
   const status = document.getElementById("formStatus");
-  status.textContent = `> Message préparé pour ${data.get("name")}.`;
-  e.target.reset();
+  const payload = Object.fromEntries(new FormData(form).entries());
+
+  status.textContent = "> Envoi du message...";
+  submitButton.disabled = true;
+  submitButton.setAttribute("aria-busy", "true");
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || "Envoi impossible.");
+
+    status.textContent = "> Message envoyé. Merci pour ton message !";
+    form.reset();
+  } catch {
+    status.textContent = "> L’envoi a échoué. Réessaie ou écris à mpamalasidibe9@gmail.com.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.removeAttribute("aria-busy");
+  }
 });
 
 /* ===================== V3 INTERACTION ENGINE ===================== */
@@ -106,7 +128,7 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
 
   // 3D tilt for hero visual.
   const tilt = document.querySelector('[data-tilt="true"]');
-  if (tilt && matchMedia("(pointer:fine)").matches) {
+  if (tilt && matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
     tilt.addEventListener("pointermove", e => {
       const r = tilt.getBoundingClientRect();
       const x = (e.clientX-r.left)/r.width-.5;
@@ -116,14 +138,24 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
     tilt.addEventListener("pointerleave", () => tilt.style.transform = "");
   }
 
-  // Subtle spotlight follows pointer on skill cards.
-  document.querySelectorAll(".skill-card").forEach(card => {
-    card.addEventListener("pointermove", e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty("--mx", ((e.clientX-r.left)/r.width*100)+"%");
-      card.style.setProperty("--my", ((e.clientY-r.top)/r.height*100)+"%");
+  // Add a restrained 3D tilt and a moving highlight to work and skill cards.
+  if (matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".project, .skill-card").forEach(card => {
+      card.addEventListener("pointermove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mx", x + "%");
+        card.style.setProperty("--my", y + "%");
+        card.style.setProperty("--tilt-x", ((50 - y) * 0.08).toFixed(2) + "deg");
+        card.style.setProperty("--tilt-y", ((x - 50) * 0.1).toFixed(2) + "deg");
+      });
+      card.addEventListener("pointerleave", () => {
+        card.style.setProperty("--tilt-x", "0deg");
+        card.style.setProperty("--tilt-y", "0deg");
+      });
     });
-  });
+  }
 
   // Particle field — intentionally lightweight for mobile.
   const canvas = document.getElementById("particleCanvas");
